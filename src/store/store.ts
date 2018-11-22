@@ -13,7 +13,7 @@ function configureStore(initialState?: {}) {
     RootAction,
     RootAction,
     RootState
-    >();
+  >();
   const middlewares = [epicMiddleware];
   // compose enhancers
   const enhancer = composeEnhancers(applyMiddleware(...middlewares));

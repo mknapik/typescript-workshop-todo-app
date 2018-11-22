@@ -28,9 +28,8 @@ function TodoFilters({ currentFilter, changeFilter }: Props) {
 
   return (
     <div>
-      {FILTERS.map(
-        (filter, idx) =>
-          filter === SEPARATOR ? SEPARATOR : Button(idx, filter)
+      {FILTERS.map((filter, idx) =>
+        filter === SEPARATOR ? SEPARATOR : Button(idx, filter)
       )}
     </div>
   );
@@ -47,6 +46,9 @@ const mapStateToProps = (state: RootState) => ({
   currentFilter: todosSelectors.getTodosFilter(state.todos),
 });
 
-export default connect(mapStateToProps, {
-  changeFilter: todosActions.changeFilter,
-})(TodoFilters);
+export default connect(
+  mapStateToProps,
+  {
+    changeFilter: todosActions.changeFilter,
+  }
+)(TodoFilters);

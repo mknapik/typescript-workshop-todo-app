@@ -45,6 +45,9 @@ class TodoForm extends React.Component<Props, State> {
 
 const mapStateToProps = (state: RootState) => ({});
 
-export default connect(mapStateToProps, {
-  addTodo: (title: string) => todosActions.add({ title }),
-})(TodoForm);
+export default connect(
+  mapStateToProps,
+  {
+    addTodo: (title: string) => todosActions.add({ title }),
+  }
+)(TodoForm);

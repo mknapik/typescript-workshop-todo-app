@@ -32,6 +32,9 @@ const mapStateToProps = (state: RootState) => ({
   todos: todosSelectors.getFilteredTodos(state.todos),
 });
 
-export default connect(mapStateToProps, {
-  toggleTodo: (id: string) => todosActions.toggle({ id }),
-})(TodoList);
+export default connect(
+  mapStateToProps,
+  {
+    toggleTodo: (id: string) => todosActions.toggle({ id }),
+  }
+)(TodoList);

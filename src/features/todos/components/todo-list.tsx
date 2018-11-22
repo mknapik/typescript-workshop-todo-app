@@ -2,21 +2,20 @@ import * as React from 'react'
 import {connect} from 'react-redux'
 
 import {RootState} from '../../../store'
-import {todosModels, todosActions, todosSelectors} from '../'
-import TodoItem from './todo-item'
+import {todosModels, todosSelectors} from '../'
+import TodoElement from './todo-element-container';
 
-interface Props {
-  todos: todosModels.Todo[]
-  toggleTodo: (id: string) => any
+namespace TodoList {
+  export interface Props {
+    todoIds: todosModels.TodoId[]
+  }
 }
 
-function TodoList({todos = [], toggleTodo}: Props) {
+function TodoList({todoIds = []}: TodoList.Props) {
   return (
     <ul style={getStyle()}>
-      {todos.map(todo => (
-        <li key={todo.id}>
-          <TodoItem item={todo} toggleItem={() => toggleTodo(todo.id)} />
-        </li>
+      {todoIds.map(id => (
+        <TodoElement id={id} />
       ))}
     </ul>
   )
@@ -29,12 +28,9 @@ const getStyle = (): React.CSSProperties => ({
 })
 
 const mapStateToProps = (state: RootState) => ({
-  todos: todosSelectors.getFilteredTodos(state.todos)
+  todoIds: todosSelectors.getFilteredTodoIds(state.todos)
 })
 
 export default connect(
-  mapStateToProps,
-  {
-    toggleTodo: (id: string) => todosActions.toggle({id})
-  }
+  mapStateToProps
 )(TodoList)

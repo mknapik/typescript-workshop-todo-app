@@ -48,6 +48,6 @@ const mapStateToProps = (state: RootState) => ({})
 export default connect(
   mapStateToProps,
   {
-    addTodo: (title: string) => todosActions.add({title})
+    addTodo: (title: string) => todosActions.addRequest({title})
   }
 )(TodoForm)

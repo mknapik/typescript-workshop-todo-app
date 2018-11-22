@@ -1,14 +1,13 @@
 import cuid from 'cuid'
 import {createStandardAction} from 'typesafe-actions'
 
-import {TodosFilter, Todo} from './models'
+import { TodosFilter, Todo, TodoId } from './models';
 
-const ADD = 'todos/ADD'
 const TOGGLE = 'todos/TOGGLE'
 const CHANGE_FILTER = 'todos/CHANGE_FILTER'
 
-export const add = createStandardAction(ADD).map(
-  (payload: {title: string}) => ({
+export const addRequest = createStandardAction('todos/add/request').map(
+  (payload: { title: string }) => ({
     payload: {
       title: payload.title || 'New Todo',
       id: cuid(),
@@ -17,6 +16,10 @@ export const add = createStandardAction(ADD).map(
   })
 )
 
-export const toggle = createStandardAction(TOGGLE)<{id: string}>()
+export const addSuccess = createStandardAction('todos/add/success').map(
+  (payload: {id: TodoId}) => ({id: payload.id})
+)
+
+export const toggle = createStandardAction(TOGGLE)<{ id: TodoId }>();
 
 export const changeFilter = createStandardAction(CHANGE_FILTER)<TodosFilter>()

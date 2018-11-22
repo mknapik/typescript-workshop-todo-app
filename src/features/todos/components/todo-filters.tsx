@@ -1,21 +1,21 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
+import * as React from 'react'
+import {connect} from 'react-redux'
 
-import { RootState } from '../../../store';
-import { todosModels, todosActions, todosSelectors } from '../';
+import {RootState} from '../../../store'
+import {todosModels, todosActions, todosSelectors} from '../'
 const {
-  TodosFilter: { All, Active, Completed },
-} = todosModels;
+  TodosFilter: {All, Active, Completed}
+} = todosModels
 
 interface Props {
-  currentFilter: todosModels.TodosFilter;
-  changeFilter: (id: string) => void;
+  currentFilter: todosModels.TodosFilter
+  changeFilter: (id: string) => void
 }
 
-const SEPARATOR = ' | ';
-const FILTERS = [All, ' | ', Active, ' | ', Completed];
+const SEPARATOR = ' | '
+const FILTERS = [All, ' | ', Active, ' | ', Completed]
 
-function TodoFilters({ currentFilter, changeFilter }: Props) {
+function TodoFilters({currentFilter, changeFilter}: Props) {
   const Button = (idx: number, filter: string) => (
     <span
       key={idx}
@@ -24,7 +24,7 @@ function TodoFilters({ currentFilter, changeFilter }: Props) {
     >
       {filter.toString()}
     </span>
-  );
+  )
 
   return (
     <div>
@@ -32,23 +32,23 @@ function TodoFilters({ currentFilter, changeFilter }: Props) {
         filter === SEPARATOR ? SEPARATOR : Button(idx, filter)
       )}
     </div>
-  );
+  )
 }
 
 const getStyle = (active: boolean): React.CSSProperties => ({
   cursor: 'pointer',
   ...(active
-    ? { textDecoration: 'underline', fontWeight: 'bold' }
-    : { opacity: 0.4 }),
-});
+    ? {textDecoration: 'underline', fontWeight: 'bold'}
+    : {opacity: 0.4})
+})
 
 const mapStateToProps = (state: RootState) => ({
-  currentFilter: todosSelectors.getTodosFilter(state.todos),
-});
+  currentFilter: todosSelectors.getTodosFilter(state.todos)
+})
 
 export default connect(
   mapStateToProps,
   {
-    changeFilter: todosActions.changeFilter,
+    changeFilter: todosActions.changeFilter
   }
-)(TodoFilters);
+)(TodoFilters)

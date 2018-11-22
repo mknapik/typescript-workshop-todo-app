@@ -1,14 +1,14 @@
-import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-import { StateType } from 'typesafe-actions';
+import {combineReducers} from 'redux'
+import {routerReducer} from 'react-router-redux'
+import {StateType} from 'typesafe-actions'
 
-import { todosReducer } from '../features/todos';
+import {todosReducer} from '../features/todos'
 
 const rootReducer = combineReducers({
   router: routerReducer,
-  todos: todosReducer,
-});
+  todos: todosReducer
+})
 
-export type RootState = StateType<typeof rootReducer>;
+export type RootState = StateType<typeof rootReducer>
 
-export default rootReducer;
+export default rootReducer

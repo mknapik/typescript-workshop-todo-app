@@ -1,9 +1,9 @@
 // tslint:disable-next-line:no-import-side-effect
-import './App.css';
-import * as React from 'react';
+import './App.css'
+import * as React from 'react'
 
 // tslint:disable-next-line:no-var-requires
-const logo = require('./logo.svg');
+const logo = require('./logo.svg')
 
 class App extends React.Component {
   render() {
@@ -17,8 +17,8 @@ class App extends React.Component {
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

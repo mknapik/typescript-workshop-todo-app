@@ -1,6 +1,6 @@
-import { RouterAction, LocationChangeAction } from 'react-router-redux';
+import {RouterAction, LocationChangeAction} from 'react-router-redux'
 
-import { TodosAction } from '../features/todos';
+import {TodosAction} from '../features/todos'
 
-type ReactRouterAction = RouterAction | LocationChangeAction;
-export type RootAction = ReactRouterAction | TodosAction;
+type ReactRouterAction = RouterAction | LocationChangeAction
+export type RootAction = ReactRouterAction | TodosAction

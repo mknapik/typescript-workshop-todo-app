@@ -19,6 +19,15 @@
     "lint:fix": "prettier --write '**/*.{ts,js,tsx,jsx}'"
   },
   "dependencies": {
+    "@types/jest": "23.3.9",
+    "@types/react": "16.7.7",
+    "@types/react-dom": "16.0.10",
+    "@types/react-redux": "6.0.10",
+    "@types/react-router-dom": "4.3.1",
+    "@types/react-router-redux": "5.0.16",
+    "prettier": "^1.15.2",
+    "typescript": "3.1.6",
+    "@types/node": "^10.12.10",
     "cuid": "2.1.4",
     "jest": "23.6.0",
     "react": "16.6.3",
@@ -36,13 +45,5 @@
     "typesafe-actions": "2.0.4"
   },
   "devDependencies": {
-    "@types/jest": "23.3.9",
-    "@types/react": "16.7.7",
-    "@types/react-dom": "16.0.10",
-    "@types/react-redux": "6.0.10",
-    "@types/react-router-dom": "4.3.1",
-    "@types/react-router-redux": "5.0.16",
-    "prettier": "^1.15.2",
-    "typescript": "3.1.6"
   }
 }

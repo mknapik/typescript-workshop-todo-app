@@ -5,7 +5,7 @@ import rootReducer, {RootState} from './root-reducer'
 import {RootAction} from './root-action'
 
 const composeEnhancers =
-  (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
+  (window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
 
 function configureStore(initialState?: {}) {
   // configure middlewares
